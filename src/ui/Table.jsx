@@ -7,6 +7,8 @@ const StyledTable = styled.div`
   font-size: 1.4rem;
   background-color: var(--color-grey-0);
   border-radius: 7px;
+
+  /* I commented this out because of the menu scrolling bug, where it stays in a particular position on the browser instead of staying right below the 3 dots icon */
   overflow: hidden;
 `;
 
