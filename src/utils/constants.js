@@ -1,1 +1,1 @@
-export const PAGE_SIZE = 3; // Number of items per page
+export const PAGE_SIZE = 10; // Number of items per page

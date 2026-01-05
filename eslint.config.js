@@ -1,31 +1,31 @@
 // eslint.config.js
-import js from '@eslint/js';
-import globals from 'globals';
-import reactPlugin from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import query from '@tanstack/eslint-plugin-query';
-import prettier from 'eslint-plugin-prettier';
-import prettierConfig from 'eslint-config-prettier';
-import { defineConfig, globalIgnores } from 'eslint/config';
+import js from "@eslint/js";
+import globals from "globals";
+import reactPlugin from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import query from "@tanstack/eslint-plugin-query";
+import prettier from "eslint-plugin-prettier";
+import prettierConfig from "eslint-config-prettier";
+import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
 
   {
-    files: ['**/*.{js,jsx}'],
+    files: ["**/*.{js,jsx}"],
 
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
+      ecmaVersion: "latest",
+      sourceType: "module",
       globals: globals.browser,
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
 
     plugins: {
       react: reactPlugin,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
       query,
       prettier,
     },
@@ -39,26 +39,27 @@ export default defineConfig([
 
     rules: {
       // React Refresh
-      'react-refresh/only-export-components': [
-        'warn',
+      "react-refresh/only-export-components": [
+        "warn",
         { allowConstantExport: true },
       ],
 
       // TanStack Query rules
-      ...query.configs['flat/recommended'].rules,
+      ...query.configs["flat/recommended"].rules,
 
       // Prettier: show formatting issues as ESLint errors
-      'prettier/prettier': 'error',
+      "prettier/prettier": "error",
 
       // React rules
-      'react/react-in-jsx-scope': 'off',
-      'react/jsx-no-undef': 'error',
-      'react/jsx-uses-react': 'off',
-      'react/prop-types': 'off',
-      'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-no-undef": "error",
+      "react/jsx-uses-react": "off",
+      "react/prop-types": "off",
+      "react/no-unescaped-entities": ["error", { forbid: [">", "}"] }],
+      "react-hooks/set-state-in-effect": "warn",
 
       // General JS rules
-      'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]' }],
+      "no-unused-vars": ["warn", { varsIgnorePattern: "^[A-Z_]" }],
     },
   },
 ]);
