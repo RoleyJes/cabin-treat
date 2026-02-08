@@ -7,13 +7,13 @@ import { useBookings } from "./useBookings";
 import Pagination from "../../ui/Pagination";
 
 function BookingTable() {
-  const { isPending, bookings, error, count } = useBookings();
+  const { isPending, bookings, count } = useBookings();
 
   if (isPending) return <Spinner />;
 
-  if (error) return <p>Something went wrong: {error.message}</p>;
-
   if (!bookings.length) return <Empty resourceName="bookings" />;
+
+  // if (error) return <p>Something went wrong: {error.message}</p>;
 
   return (
     <Menus>
